@@ -61,7 +61,7 @@
 //     }
 const fs =require('fs');
 const express =require('express');
-const http =require('http');
+
 const app = express();
 const hbs =require('hbs');
 hbs.registerHelper('getCurrentYear',()=>{
@@ -69,7 +69,8 @@ hbs.registerHelper('getCurrentYear',()=>{
 });
 hbs.registerHelper('screamIt',(text)=>{
   return text.toUpperCase();
-})
+});
+var port=process.env.PORT||8003;
 app.use((req,res,next)=>{
 var now= new Date().toSgittring();
 var log=`${now} : ${req.method} : ${req.url}`;
@@ -101,6 +102,6 @@ app.get('/about',(req,res)=>{
 app.get('/bad',(req,res)=>{
     //res.send({error:'unable to handle'});
 });
-app.listen(8010,(error)=>{
-    console.log('');
+app.listen(port,(error)=>{
+    console.log('server running on '+port);
 });
