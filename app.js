@@ -72,7 +72,7 @@ hbs.registerHelper('screamIt',(text)=>{
 });
 var port=process.env.PORT||8003;
 app.use((req,res,next)=>{
-var now= new Date().toSgittring();
+var now= new Date().toString();
 var log=`${now} : ${req.method} : ${req.url}`;
 console.log(log);
 fs.appendFile('logger.log',log+'\n',(err)=>{
