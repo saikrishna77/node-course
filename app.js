@@ -92,6 +92,13 @@ app.get('/',(req,res)=>{
         
         message:'welcome to Home'
     });
+});
+app.get('/projects',(req,res)=>{
+    res.render('projects.hbs',{
+        pageTitle:'About page',
+        
+        message:'welcome to projects page'
+    });
 })
 app.get('/about',(req,res)=>{
     res.render('about.hbs',{
